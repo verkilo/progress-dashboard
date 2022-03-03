@@ -1,4 +1,11 @@
-# progress-dashboard
+# Author's Progress Dashboard 
+
+## Features
+
+* Track progress by day and work-in-progress
+* Cumulative progress by WIP, day, week, month, year
+* GH Heatmap by year, with rolling previous year
+* Planned due date with estimated
 
 ## Project setup
 ```
