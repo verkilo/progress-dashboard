@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "ampauthordashboard",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}

@@ -1,0 +1,16 @@
+{
+  "resourceName": "DashboardImages",
+  "policyUUID": "672530d5",
+  "bucketName": "ampauthordashboard6647a87313d4416d99a1c8b6fcb32",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
