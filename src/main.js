@@ -6,6 +6,7 @@ import App from './App.vue';
 import './assets/tailwind.css';
 import router from './router';
 import store from './store';
+// import { Vue } from 'vue-demi';
 
 Amplify.configure(AwsExports);
 

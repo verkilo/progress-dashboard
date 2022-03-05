@@ -10,6 +10,11 @@
       "StackName": "amplify-ampauthordashboard-dev-54131",
       "StackId": "arn:aws:cloudformation:us-east-1:408429425088:stack/amplify-ampauthordashboard-dev-54131/7ef27980-9ade-11ec-962e-12c052ca6703",
       "AmplifyAppId": "d1qs2wq9i6xbmf"
+    },
+    "categories": {
+      "auth": {
+        "ampauthordashboarde004cccb": {}
+      }
     }
   }
 }

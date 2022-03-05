@@ -1,11 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import DashboardView from "../views/DashboardView.vue";
+import SignupView from "../views/SignupView.vue";
+import LoginView from "../views/LoginView.vue";
+
+import { Auth } from 'aws-amplify';
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView,
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: DashboardView,
+  },
+  {
+    path: '/signup',
+    name: 'Sign Up',
+    component: SignupView,
+  },
+  {
+    path: '/login',
+    name: 'Log In',
+    component: LoginView,
   },
   {
     path: '/about',
@@ -21,5 +41,15 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = await Auth.currentUserInfo();
 
+  if (requiresAuth && !isAuthenticated) {
+    next("/");
+  } else {
+    next()
+  }
+
+})
 export default router;

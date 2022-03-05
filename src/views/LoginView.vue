@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <h1>HOME</h1>
-  </div>
+  <article>
+    <UserLogin />
+  </article>
 </template>
 
 <script>
 // @ is an alias to /src
-// import UserLogin from "@/components/UserLogin.vue";
+import UserLogin from "@/components/UserLogin.vue";
 
 export default {
   name: "HomeView",
   components: {
     // HelloWorld,
-    // UserLogin,
+    UserLogin,
   },
 };
 </script>
