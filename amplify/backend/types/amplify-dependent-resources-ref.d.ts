@@ -18,7 +18,6 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "ampauthordashboard": {
-            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }

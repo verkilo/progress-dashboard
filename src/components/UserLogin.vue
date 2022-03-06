@@ -71,7 +71,7 @@ export default {
           username: this.username,
           password: this.password,
         });
-        this.$router.push("/albums");
+        this.$router.push("/projects");
       } catch (error) {
         this.error = error;
       }

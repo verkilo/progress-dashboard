@@ -19,6 +19,9 @@ nav a.router-link-exact-active {
   @apply text-blue-500;
   /* color: #42b983; */
 }
+h1, h2, h3, h4, h5, h6 {
+  @apply dark:text-blue-200
+}
 h1 {
   @apply py-8 text-5xl;
 }
@@ -38,7 +41,9 @@ h1 {
   .heatmap-4 { @apply fill-green-600/75 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600/75 }
   .heatmap-5 { @apply fill-green-600 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600 }
 }
-
+body {
+  @apply bg-white dark:bg-stone-800 text-black dark:text-stone-200
+}
 
 .button-blue {
   @apply bg-blue-500 text-white button;

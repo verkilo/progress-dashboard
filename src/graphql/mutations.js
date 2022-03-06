@@ -8,23 +8,30 @@ export const createProject = /* GraphQL */ `
   ) {
     createProject(input: $input, condition: $condition) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
@@ -37,23 +44,30 @@ export const updateProject = /* GraphQL */ `
   ) {
     updateProject(input: $input, condition: $condition) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
@@ -66,23 +80,30 @@ export const deleteProject = /* GraphQL */ `
   ) {
     deleteProject(input: $input, condition: $condition) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
@@ -96,24 +117,31 @@ export const createSession = /* GraphQL */ `
     createSession(input: $input, condition: $condition) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;
@@ -125,24 +153,31 @@ export const updateSession = /* GraphQL */ `
     updateSession(input: $input, condition: $condition) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;
@@ -154,24 +189,31 @@ export const deleteSession = /* GraphQL */ `
     deleteSession(input: $input, condition: $condition) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;

@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue';
 import DashboardView from "../views/DashboardView.vue";
 import SignupView from "../views/SignupView.vue";
 import LoginView from "../views/LoginView.vue";
+import ProjectsView from "../views/ProjectsView.vue";
+import ProjectDetailView from "../views/ProjectDetailView.vue";
 
 import { Auth } from 'aws-amplify';
 
@@ -16,6 +18,17 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: DashboardView,
+  },
+  {
+    path: '/projects',
+    name: 'Projects',
+    component: ProjectsView,
+  },
+  {
+    path: "/project/:id",
+    name: "ProjectDetailView",
+    component: ProjectDetailView,
+    meta: { requiresAuth: true }
   },
   {
     path: '/signup',

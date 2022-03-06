@@ -2,35 +2,43 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 # input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Project 
+# type Blog @model {
+#   id: ID!
+#   name: String!
+#   posts: [Post] @hasMany
+# }
+
+# type Post @model {
+#   id: ID!
+#   title: String!
+#   blog: Blog @belongsTo
+#   comments: [Comment] @hasMany
+# }
+
+# type Comment @model {
+#   id: ID!
+#   post: Post @belongsTo
+#   content: String!
+# }
+type Project
   @model
   @auth(rules: [{ allow: owner }])
 {
-  id: ID!
+  id: String!
   owner: ID!
   ownerId: String!
   name: String!
   description: String
-  startingWordcount: Int
-  targetWordcount: Int
-  finishedWordcount: Int
   sessions: [Session] @hasMany
-  startedOn: AWSDateTime
-  expectedOn: AWSDateTime
-  finishedOn: AWSDateTime
-  createdAt: AWSDateTime
-  updatedAt: AWSDateTime
+  started_on: AWSDateTime
+  finished_on: AWSDateTime
+  published_on: AWSDateTime
 }
-type Session 
-  @model
-  @auth(rules: [{ allow: owner }])
-{
+type Session @model {
   id: ID!
   date: AWSDateTime!
-  wordcount: Int!
-  duration: Float
-  comment: String
   project: Project @belongsTo
-  createdAt: AWSDateTime
-  updatedAt: AWSDateTime
+  wordcount: Int
+  hours: Float
+  comment: String
 }

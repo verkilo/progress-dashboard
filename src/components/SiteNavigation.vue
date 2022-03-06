@@ -1,7 +1,7 @@
 <template>
   <Disclosure
     as="nav"
-    class="dark:bg-gray-800 bg-gray-50 p-0"
+    class="dark:bg-stone-900 bg-stone-50 p-0"
     v-slot="{ open }"
   >
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -15,8 +15,8 @@
               justify-center
               p-2
               rounded-md
-              text-gray-400
-              hover:text-white hover:bg-gray-700
+              text-stone-400
+              hover:text-white hover:bg-stone-700
               focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
             "
           >
@@ -72,23 +72,23 @@
             sm:static sm:inset-auto sm:ml-6 sm:pr-0
           "
         >
-          <span class="mx-2 dark:text-white text-gray-400" v-if="user">{{
+          <span class="mx-2 dark:text-white text-stone-400" v-if="user">{{
             user.username
           }}</span>
           <button
             type="button"
             class="
-              dark:bg-gray-800
-              bg-gray-50
+              dark:bg-stone-800
+              bg-stone-50
               p-1
               rounded-full
-              text-gray-400
+              text-stone-400
               hover:text-black
               dark:hover:text-white
               focus:outline-none
               focus:ring-2
               focus:ring-offset-2
-              focus:ring-offset-gray-800
+              focus:ring-offset-stone-800
               focus:ring-white
             "
             v-if="user"
@@ -108,14 +108,14 @@
             <div>
               <MenuButton
                 class="
-                  bg-gray-800
+                  bg-stone-800
                   flex
                   text-sm
                   rounded-full
                   focus:outline-none
                   focus:ring-2
                   focus:ring-offset-2
-                  focus:ring-offset-gray-800
+                  focus:ring-offset-stone-800
                   focus:ring-white
                 "
               >
@@ -154,7 +154,7 @@
                   <a
                     href="#"
                     :class="[
-                      active ? 'bg-gray-500/25 hidden' : '',
+                      active ? 'bg-stone-500/25 hidden' : '',
                       'user-menu-item',
                     ]"
                     >Your Profile</a
@@ -164,7 +164,7 @@
                   <a
                     href="#"
                     :class="[
-                      active ? 'bg-gray-500/25 hidden' : '',
+                      active ? 'bg-stone-500/25 hidden' : '',
                       'user-menu-item',
                     ]"
                     >Settings</a
@@ -173,7 +173,7 @@
                 <MenuItem v-slot="{ active }">
                   <a
                     href="#"
-                    :class="[active ? 'bg-gray-500/25' : '', 'user-menu-item']"
+                    :class="[active ? 'bg-stone-500/25' : '', 'user-menu-item']"
                     @click="logout"
                     >Sign out</a
                   >

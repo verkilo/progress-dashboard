@@ -2,158 +2,200 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateProject = /* GraphQL */ `
-  subscription OnCreateProject {
-    onCreateProject {
+  subscription OnCreateProject($owner: String) {
+    onCreateProject(owner: $owner) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
   }
 `;
 export const onUpdateProject = /* GraphQL */ `
-  subscription OnUpdateProject {
-    onUpdateProject {
+  subscription OnUpdateProject($owner: String) {
+    onUpdateProject(owner: $owner) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
   }
 `;
 export const onDeleteProject = /* GraphQL */ `
-  subscription OnDeleteProject {
-    onDeleteProject {
+  subscription OnDeleteProject($owner: String) {
+    onDeleteProject(owner: $owner) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
   }
 `;
 export const onCreateSession = /* GraphQL */ `
-  subscription OnCreateSession {
-    onCreateSession {
+  subscription OnCreateSession($owner: String) {
+    onCreateSession(owner: $owner) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;
 export const onUpdateSession = /* GraphQL */ `
-  subscription OnUpdateSession {
-    onUpdateSession {
+  subscription OnUpdateSession($owner: String) {
+    onUpdateSession(owner: $owner) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;
 export const onDeleteSession = /* GraphQL */ `
-  subscription OnDeleteSession {
-    onDeleteSession {
+  subscription OnDeleteSession($owner: String) {
+    onDeleteSession(owner: $owner) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;

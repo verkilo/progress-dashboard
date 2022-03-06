@@ -5,8 +5,13 @@
     "serviceName": "AppSync",
     "gqlSchemaPath": "/Users/merovex/Code/progress-dashboard/amplify/backend/api/ampauthordashboard/schema.graphql",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authampauthordashboarde004cccb"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AWS_IAM"
+      }
+    ]
   }
 }

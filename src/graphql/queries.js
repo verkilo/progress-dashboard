@@ -5,23 +5,30 @@ export const getProject = /* GraphQL */ `
   query GetProject($id: ID!) {
     getProject(id: $id) {
       id
+      owner
+      ownerId
       name
       description
+      startingWordcount
+      targetWordcount
+      finishedWordcount
       sessions {
         items {
           id
           date
           wordcount
-          hours
+          duration
+          comment
           createdAt
           updatedAt
           projectSessionsId
+          owner
         }
         nextToken
       }
-      started_on
-      finished_on
-      published_on
+      startedOn
+      expectedOn
+      finishedOn
       createdAt
       updatedAt
     }
@@ -36,14 +43,19 @@ export const listProjects = /* GraphQL */ `
     listProjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
@@ -56,24 +68,31 @@ export const getSession = /* GraphQL */ `
     getSession(id: $id) {
       id
       date
+      wordcount
+      duration
+      comment
       project {
         id
+        owner
+        ownerId
         name
         description
+        startingWordcount
+        targetWordcount
+        finishedWordcount
         sessions {
           nextToken
         }
-        started_on
-        finished_on
-        published_on
+        startedOn
+        expectedOn
+        finishedOn
         createdAt
         updatedAt
       }
-      wordcount
-      hours
       createdAt
       updatedAt
       projectSessionsId
+      owner
     }
   }
 `;
@@ -87,21 +106,28 @@ export const listSessions = /* GraphQL */ `
       items {
         id
         date
+        wordcount
+        duration
+        comment
         project {
           id
+          owner
+          ownerId
           name
           description
-          started_on
-          finished_on
-          published_on
+          startingWordcount
+          targetWordcount
+          finishedWordcount
+          startedOn
+          expectedOn
+          finishedOn
           createdAt
           updatedAt
         }
-        wordcount
-        hours
         createdAt
         updatedAt
         projectSessionsId
+        owner
       }
       nextToken
     }
