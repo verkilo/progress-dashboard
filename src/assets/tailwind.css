@@ -26,39 +26,39 @@ h1 {
   @apply py-8 text-5xl;
 }
 @layer utilities {
-  .bordered { @apply border rounded-lg p-3 shadow; }
+  .bordered { @apply p-3 border rounded-lg shadow; }
   .button { @apply border rounded-md p-2 shadow-lg text-sm font-bold opacity-75 }
-  .button:hover { @apply opacity-100 shadow; }
+  .button:hover { @apply shadow opacity-100; }
   .button:focus { @apply outline-none outline-2; }
 }
 
 @layer components {
   .input { @apply shadow appearance-none border rounded w-full py-2 px-3 text-stone-700 mb-3 leading-tight }
-  .label { @apply block text-stone-700 text-sm font-bold; }
+  .label { @apply block text-sm font-bold text-stone-700; }
   .heatmap-1 { @apply fill-stone-400/5 stroke-stone-400/25 }
   .heatmap-2 { @apply fill-green-600/25 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600/25 }
   .heatmap-3 { @apply fill-green-600/50 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600/50 }
   .heatmap-4 { @apply fill-green-600/75 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600/75 }
   .heatmap-5 { @apply fill-green-600 stroke-stone-400/25 dark:stroke-stone-400/75 dark:fill-green-600 }
 }
-body {
+html, body {
   @apply bg-white dark:bg-stone-800 text-black dark:text-stone-200
 }
 
 .button-blue {
-  @apply bg-blue-500 text-white button;
+  @apply text-white bg-blue-500 button;
 }
 .button-green {
-  @apply bg-green-700 text-white button;
+  @apply text-white bg-green-700 button;
 }
 .button-gray {
-  @apply bg-stone-500 text-white button;
+  @apply text-white bg-stone-500 button;
 }
 #site-nav a {
-  @apply px-3 py-2 rounded-md text-sm font-medium dark:text-stone-300 hover:bg-stone-700 hover:text-white;
+  @apply px-3 py-2 text-sm font-medium rounded-md dark:text-stone-300 hover:bg-stone-700 hover:text-white;
 }
 .active-nav-link {
-  @apply dark:bg-stone-900 bg-stone-300 dark:text-white text-black;
+  @apply text-black dark:bg-stone-900 bg-stone-300 dark:text-white;
 }
 .nav-link {
   @apply dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-white text-stone-500 hover:text-black;
