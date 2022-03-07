@@ -1,17 +1,19 @@
 <template>
   <article class="relative max-w-2xl mx-auto dark:text-stone-200">
-    <div vif="user" class="absolute flex right-2 top-2 gap-x-2">
-      <div
-        class="flex items-center justify-center rounded-full shadow-lg cursor-pointer  h-7 w-7 bg-at-light-green"
-        @click="editMode"
-      >
-        <PencilIcon class="w-6 h-6" aria-hidden="true" />
-      </div>
-      <div
-        click="deleteWorkout"
-        class="flex items-center justify-center rounded-full shadow-lg cursor-pointer  h-7 w-7 bg-at-light-green"
-      >
-        <TrashIcon class="w-6 h-6" aria-hidden="true" />
+    <div v-if="!editing">
+      <div vif="user" class="absolute flex right-2 top-2 gap-x-2">
+        <div
+          class="flex items-center justify-center rounded-full shadow-lg cursor-pointer  h-7 w-7 bg-at-light-green"
+          @click="editMode"
+        >
+          <PencilIcon class="w-6 h-6" aria-hidden="true" />
+        </div>
+        <div
+          click="deleteWorkout"
+          class="flex items-center justify-center rounded-full shadow-lg cursor-pointer  h-7 w-7 bg-at-light-green"
+        >
+          <TrashIcon class="w-6 h-6" aria-hidden="true" />
+        </div>
       </div>
     </div>
     <div v-if="editing">
@@ -40,6 +42,24 @@
           v-model="revised.startingWordcount"
         />
       </div>
+      <aside class="flex my-8">
+        <div class="flex-1">
+          <h3 class="font-strong">Started On</h3>
+          <v-date-picker
+            v-model="revised.startedOn"
+            show-weeknumbers
+            trim-weeks
+          />
+        </div>
+        <div class="flex-1">
+          <h3 class="font-strong">Planned Finish</h3>
+          <v-date-picker
+            v-model="revised.finishedOn"
+            show-weeknumbers
+            trim-weeks
+          />
+        </div>
+      </aside>
       <button class="button-blue" @click="updateProject()">Update</button>
       or
       <a
@@ -72,25 +92,28 @@
             <th scope="row">Current Wordcount</th>
             <td id="currentWordcount" class="text-right">0</td>
           </tr>
+        </table>
+        <hr />
+        <table class="w-full max-w-lg mx-auto text-left">
           <tr>
             <th scope="row">Started Date</th>
-            <td>{{ project.startedOn }}</td>
+            <td class="text-right">{{ formatDate(project.startedOn) }}</td>
           </tr>
           <tr>
-            <th scope="row">Anticipated Date</th>
-            <td>{{ project.expectedOn }}</td>
+            <th scope="row">Desired Date</th>
+            <td class="text-right">{{ formatDate(project.expectedOn) }}</td>
           </tr>
           <tr>
             <th scope="row">Actual Finish Date</th>
-            <td>{{ project.finishedOn }}</td>
+            <td class="text-right">{{ formatDate(project.finishedOn) }}</td>
           </tr>
-          <tr>
+          <tr class="hidden">
             <th scope="row">Created</th>
-            <td>{{ project.createdAt }}</td>
+            <td class="text-right">{{ formatDate(project.createdAt) }}</td>
           </tr>
-          <tr>
+          <tr class="hidden">
             <th scope="row">Updated</th>
-            <td>{{ project.updatedAt }}</td>
+            <td class="text-right">{{ formatDate(project.updatedAt) }}</td>
           </tr>
           <tr></tr>
         </table>
@@ -105,6 +128,7 @@
 
 <script>
 import { TrashIcon, PencilIcon } from "@heroicons/vue/outline";
+import "v-calendar/dist/style.css";
 export default {
   mounted() {
     this.getProject();
@@ -136,17 +160,27 @@ export default {
     async updateProject() {
       const project = this.revised;
       project.updatedAt = new Date().toISOString();
-
       delete project.sessions; // We get an error for updating the children.
+
       await this.$store.dispatch("projectInfo/updateProject", {
         ...project,
       });
-      this.project = this.revised;
+      await this.getProject();
       this.editing = false;
     },
     async cancelRevision() {
       this.editing = false;
       this.revised = this.project;
+    },
+    formatDate(date) {
+      if (date === null) {
+        return;
+      }
+      return new Date(date).toLocaleDateString("en-us", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
     },
   },
   computed: {
