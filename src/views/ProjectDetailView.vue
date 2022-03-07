@@ -1,6 +1,6 @@
 <template>
   <article class="relative max-w-2xl mx-auto dark:text-stone-200">
-    <div vif="user" class="absolute flex left-2 top-2 gap-x-2">
+    <div vif="user" class="absolute flex right-2 top-2 gap-x-2">
       <div
         class="flex items-center justify-center rounded-full shadow-lg cursor-pointer  h-7 w-7 bg-at-light-green"
         @click="editMode"
@@ -50,7 +50,7 @@
     </div>
     <div v-else>
       <h1>{{ project.name }}</h1>
-      <div class="mb-12 prose text-left">
+      <div class="mb-12 text-xl text-center">
         {{ project.description }}
       </div>
       <section>
@@ -58,20 +58,41 @@
         <table class="w-full max-w-lg mx-auto text-left">
           <tr>
             <th>Starting Wordcount</th>
-            <td id="startingWordcount" class="text-right">
+            <td scope="row" id="startingWordcount" class="text-right">
               {{ project.startingWordcount || 0 }}
             </td>
           </tr>
           <tr>
-            <th>Target</th>
+            <th scope="row">Target Wordcount</th>
             <td id="targetWordcount" class="text-right">
               {{ project.targetWordcount || 0 }}
             </td>
           </tr>
           <tr>
-            <th>Current</th>
+            <th scope="row">Current Wordcount</th>
             <td id="currentWordcount" class="text-right">0</td>
           </tr>
+          <tr>
+            <th scope="row">Started Date</th>
+            <td>{{ project.startedOn }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Anticipated Date</th>
+            <td>{{ project.expectedOn }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Actual Finish Date</th>
+            <td>{{ project.finishedOn }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Created</th>
+            <td>{{ project.createdAt }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Updated</th>
+            <td>{{ project.updatedAt }}</td>
+          </tr>
+          <tr></tr>
         </table>
       </section>
       <section>
@@ -114,6 +135,8 @@ export default {
     },
     async updateProject() {
       const project = this.revised;
+      project.updatedAt = new Date().toISOString();
+
       delete project.sessions; // We get an error for updating the children.
       await this.$store.dispatch("projectInfo/updateProject", {
         ...project,
