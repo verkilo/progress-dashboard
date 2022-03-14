@@ -11,6 +11,8 @@ type Project
   ownerId: String!
   name: String!
   description: String
+  # Status: Active, Archived
+  status: String! @index(name: "projectsByDate", queryField: "projectsByDate", sortKeyFields: ["updatedAt"])
   startingWordcount: Int
   targetWordcount: Int
   finishedWordcount: Int
@@ -21,6 +23,7 @@ type Project
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }
+
 type Session 
   @model
   @auth(rules: [{ allow: owner }])
@@ -34,3 +37,30 @@ type Session
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }
+# query projectsByDate {
+#   projectsByDate(
+#     status: "active"
+#     sortDirection: ASC
+#   ) {
+#     items {
+#       id
+#       name
+#       description
+#       updatedAt
+#     }
+#   }
+# }
+
+# query projectsByDateDescending {
+#   projectsByDate(
+#     status: "active"
+#     sortDirection: DESC
+#   ) {
+#     items {
+#       id
+#       name
+#       description
+#       updatedAt
+#     }
+#   }
+# }

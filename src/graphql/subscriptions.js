@@ -9,6 +9,7 @@ export const onCreateProject = /* GraphQL */ `
       ownerId
       name
       description
+      status
       startingWordcount
       targetWordcount
       finishedWordcount
@@ -42,6 +43,7 @@ export const onUpdateProject = /* GraphQL */ `
       ownerId
       name
       description
+      status
       startingWordcount
       targetWordcount
       finishedWordcount
@@ -75,6 +77,7 @@ export const onDeleteProject = /* GraphQL */ `
       ownerId
       name
       description
+      status
       startingWordcount
       targetWordcount
       finishedWordcount
@@ -114,6 +117,7 @@ export const onCreateSession = /* GraphQL */ `
         ownerId
         name
         description
+        status
         startingWordcount
         targetWordcount
         finishedWordcount
@@ -147,6 +151,7 @@ export const onUpdateSession = /* GraphQL */ `
         ownerId
         name
         description
+        status
         startingWordcount
         targetWordcount
         finishedWordcount
@@ -180,6 +185,7 @@ export const onDeleteSession = /* GraphQL */ `
         ownerId
         name
         description
+        status
         startingWordcount
         targetWordcount
         finishedWordcount

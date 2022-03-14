@@ -9,6 +9,7 @@ export const getProject = /* GraphQL */ `
       ownerId
       name
       description
+      status
       startingWordcount
       targetWordcount
       finishedWordcount
@@ -47,6 +48,7 @@ export const listProjects = /* GraphQL */ `
         ownerId
         name
         description
+        status
         startingWordcount
         targetWordcount
         finishedWordcount
@@ -77,6 +79,7 @@ export const getSession = /* GraphQL */ `
         ownerId
         name
         description
+        status
         startingWordcount
         targetWordcount
         finishedWordcount
@@ -115,6 +118,7 @@ export const listSessions = /* GraphQL */ `
           ownerId
           name
           description
+          status
           startingWordcount
           targetWordcount
           finishedWordcount
@@ -128,6 +132,46 @@ export const listSessions = /* GraphQL */ `
         updatedAt
         projectSessionsId
         owner
+      }
+      nextToken
+    }
+  }
+`;
+export const projectsByDate = /* GraphQL */ `
+  query ProjectsByDate(
+    $status: String!
+    $updatedAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelProjectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    projectsByDate(
+      status: $status
+      updatedAt: $updatedAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        owner
+        ownerId
+        name
+        description
+        status
+        startingWordcount
+        targetWordcount
+        finishedWordcount
+        sessions {
+          nextToken
+        }
+        startedOn
+        expectedOn
+        finishedOn
+        createdAt
+        updatedAt
       }
       nextToken
     }
