@@ -1,11 +1,6 @@
-<template>
-  <SiteNavigation />
-  <main class="max-w-3xl min-h-screen mx-auto">
-    <router-view />
-  </main>
-</template>
 <script>
-import SiteNavigation from "./components/SiteNavigation";
+console.log("HERE");
+import SiteNavigation from "@/components/SiteNavigation.vue";
 import { mapActions } from "vuex";
 
 export default {
@@ -24,3 +19,10 @@ export default {
 
 <style lang="scss">
 </style>
+
+<template>
+  <SiteNavigation />
+  <main class="max-w-3xl min-h-screen mx-auto">
+    <router-view />
+  </main>
+</template>
